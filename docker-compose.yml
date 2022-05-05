@@ -1,0 +1,20 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    volumes:
+      - ./persistence:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=lodka
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=pssd123
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
