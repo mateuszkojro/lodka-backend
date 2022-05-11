@@ -1,9 +1,12 @@
 package com.lodkawolontariatu.api.service;
 
+import com.lodkawolontariatu.api.model.UserInfo;
 import com.lodkawolontariatu.api.model.UserSkill;
 import com.lodkawolontariatu.api.repository.UserSkillRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -14,8 +17,10 @@ public class UserSkillService {
         return userSkillRepository.save(userSkill);
     }
 
-    public UserSkill getById(Long id) {
-        return userSkillRepository.findById(id).orElseThrow();
+    public List<UserSkill> getById(Long id) {
+        var userInfo = new UserInfo();
+        userInfo.setUserId(id);
+        return userSkillRepository.findByUserId(userInfo);
     }
 
 }

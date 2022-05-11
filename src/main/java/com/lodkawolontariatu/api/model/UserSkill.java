@@ -13,12 +13,12 @@ import javax.persistence.*;
 public class UserSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long user_skill_id;
+    Long userSkillId;
 
     // TODO: This is a foregin
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserInfo user_id;
+    private UserInfo userId;
 
     private String skill;
 }

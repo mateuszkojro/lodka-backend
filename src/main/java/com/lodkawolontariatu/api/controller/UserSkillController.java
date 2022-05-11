@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @ResponseBody
 @RequiredArgsConstructor
@@ -15,14 +17,14 @@ public class UserSkillController {
     private final UserInfoService userInfoService;
 
     @GetMapping(path = "/user-skills/get/{id}")
-    public UserSkill getById(@PathVariable long id) {
+    public List<UserSkill> getById(@PathVariable long id) {
         return userSkillService.getById(id);
     }
 
     @PostMapping(path = "/user-skills/post/{id}")
     public UserSkill addUserSkill(@RequestBody UserSkill userSkill, @PathVariable long id) {
         var userInfo = userInfoService.getById(id);
-        userSkill.setUser_id(userInfo);
+        userSkill.setUserId(userInfo);
         return userSkillService.add(userSkill);
     }
 }

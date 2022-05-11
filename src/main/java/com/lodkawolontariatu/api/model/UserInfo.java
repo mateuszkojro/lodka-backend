@@ -17,16 +17,16 @@ public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long user_id;
+    private Long userId;
     private String name;
     private String surname;
     private String email; //TODO: typ email
-    private String phone_number;
+    private String phoneNumber;
     private String something;
 
     @Enumerated(EnumType.STRING)
-    private UserStatusT user_status;
+    private UserStatusT userStatus;
 
-    private String photo_url;
+    private String photoUrl;
 }
 
