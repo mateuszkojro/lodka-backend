@@ -12,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name="USER_INFO")
 public class UserInfo {
 
     @Id
@@ -21,6 +22,7 @@ public class UserInfo {
     private String surname;
     private String email; //TODO: typ email
     private String phone_number;
+    private String something;
 
     @Enumerated(EnumType.STRING)
     private UserStatusT user_status;
