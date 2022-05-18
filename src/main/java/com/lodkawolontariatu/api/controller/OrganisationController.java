@@ -7,6 +7,7 @@ import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -28,5 +29,10 @@ public class OrganisationController {
     @GetMapping(path = "/organization/{id}")
     public Organisation getById(@PathVariable long id){
         return organisationService.getById(id);
+    }
+
+    @GetMapping(path = "/organizations")
+    public List<Organisation> getOrganisations(){
+        return organisationService.getOrganisations();
     }
 }

@@ -5,6 +5,7 @@ import com.lodkawolontariatu.api.repository.OrganisationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,6 +27,10 @@ public class OrganisationService {
 
     public final Organisation getById(Long id){
         return organisationRepository.findById(id).orElseThrow();
+    }
+
+    public final List<Organisation> getOrganisations(){
+        return organisationRepository.findAll();
     }
 
 }
