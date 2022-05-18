@@ -26,7 +26,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Offert_info_out"
+              $ref: "#/definitions/OffertInfoOut"
 
   /offers/add:
     post:
@@ -43,12 +43,12 @@ paths:
         description: "Offer object to add"
         required: true
         schema:
-          $ref: "#/definitions/Offert_info_in"
+          $ref: "#/definitions/OffertInfoIn"
       responses:
         "200":
           description: "success"
           schema:
-            $ref: "#/definitions/Offert_info_out"
+            $ref: "#/definitions/OffertInfoOut"
         "405":
           description: "Invalid input"
           
@@ -90,7 +90,7 @@ paths:
         "200":
           description: "success"
           schema:
-            $ref: "#/definitions/Offert_info_out"
+            $ref: "#/definitions/OffertInfoOut"
         "405":
           description: "Invalid input"
   
@@ -124,12 +124,12 @@ paths:
         description: "volunteer object to add"
         required: true
         schema: 
-          $ref: "#/definitions/Volunteer_info_in"
+          $ref: "#/definitions/VolunteerInfoIn"
       responses:
         "200":
           description: "Created Volunteer"
           schema:
-            $ref: "#/definitions/Volunteer_info_out"
+            $ref: "#/definitions/VolunteerInfoOut"
         "405":
           description: "Invalid input"
           
@@ -150,7 +150,7 @@ paths:
         "200":
           description: "Deleted volunteer"
           schema:
-            $ref: '#/definitions/Volunteer_info_out'
+            $ref: '#/definitions/VolunteerInfoOut'
         "404":
           description: "volunteer not found"
         "405":
@@ -173,7 +173,7 @@ paths:
         "200":
           description: Volunteer infromations
           schema:
-            $ref: '#/definitions/Volunteer_info_out'
+            $ref: '#/definitions/VolunteerInfoOut'
         "405":
           description: "Invalid input"
   
@@ -282,7 +282,7 @@ paths:
           
           
 definitions:
-  Volunteer_info_in:
+  VolunteerInfoIn:
     type: "object"
     properties:
       name: 
@@ -306,7 +306,7 @@ definitions:
         enum:
         - "AKCYJNY"
         
-  Volunteer_info_out:
+  VolunteerInfoOut:
     type: "object"
     properties:
       id: 
@@ -342,7 +342,7 @@ definitions:
         enum:
         - "AKCYJNY"
         
-  Offert_info_out:
+  OffertInfoOut:
     type: "object"
     properties:
       offert_id: 
@@ -374,10 +374,10 @@ definitions:
         enum:
         - "ACTIVE"
         
-  Offert_info_in:
+  OffertInfoIn:
     type: "object"
     properties:
-      organisation_id: 
+      organization_id: 
         type: "integer"
         format: "int64"
       avaliable_positions:
