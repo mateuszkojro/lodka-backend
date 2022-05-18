@@ -17,3 +17,5 @@ curl -X POST http://localhost:8080/user-skills/post/1 \
 echo "-- Geting skills"
 curl -X GET http://localhost:8080/user-skills/get/1
 
+echo "-- Add Organisation"
+curl -X POST http://localhost:8080/organizations/add -H 'Content-Type: application/json' -d '{"id": 0, "organizationName": "string", "address": "string", "type": "foundation", "status": "active", "remarks": "string" }'
