@@ -1,10 +1,13 @@
+# To preview paste this yaml into editor:
+# https://editor.swagger.io/
+
 swagger: "2.0"
 info:
   description: "Definicja API dla lodki wolontariatu"
   version: "1.0.0"
   title: "API lodka wolontariatu"
   contact:
-    email: "mateusz.maciej.kojro@cern.ch"
+    email: "mateusz.maciej.kojro@cern.h"
 host: "none"
 basePath: "/v1"
 schemes:
@@ -19,7 +22,11 @@ paths:
       - "application/json"
       responses:
         "200":
-          description: "ok"
+          description: "success"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Offert_info_out"
 
   /offers/add:
     post:
@@ -35,10 +42,13 @@ paths:
         name: "body"
         description: "Offer object to add"
         required: true
-        schema: {}
+        schema:
+          $ref: "#/definitions/Offert_info_in"
       responses:
         "200":
-          description: "ok"
+          description: "success"
+          schema:
+            $ref: "#/definitions/Offert_info_out"
         "405":
           description: "Invalid input"
           
@@ -57,91 +67,7 @@ paths:
         description: Numeric ID of the offer to delete
       responses:
         "200":
-          description: "ok"
-        "404":
-          description: "offert not found"
-        "405":
-          description: "Invalid input"
-  
-  /offers/{id}:
-    get:
-      summary: "Get the offert details"
-      description: ""
-      operationId: "getOffer"
-      produces:
-      - "application/json"
-      parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the offert to get
-      responses:
-        "200":
-          description: ok
-        "405":
-          description: "Invalid input"
-
-swagger: "2.0"
-info:
-  description: "Definicja API dla lodki wolontariatu"
-  version: "1.0.0"
-  title: "API lodka wolontariatu"
-  contact:
-    email: "mateusz.maciej.kojro@cern.ch"
-host: "none"
-basePath: "/v1"
-schemes:
-- "https"
-paths:
-  /offers:
-    get:
-      summary: "List all offers"
-      description: ""
-      operationId: "listOffers"
-      produces:
-      - "application/json"
-      responses:
-        "200":
-          description: "ok"
-
-  /offers/add:
-    post:
-      summary: "Add a new offer"
-      description: ""
-      operationId: "addOffer"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Offer object to add"
-        required: true
-        schema: {}
-      responses:
-        "200":
-          description: "ok"
-        "405":
-          description: "Invalid input"
-          
-  /offers/delete/{id}:
-    delete:
-      summary: "Delete offer"
-      description: ""
-      operationId: "deleteOffer"
-      produces:
-      - "application/json"
-      parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the offer to delete
-      responses:
-        "200":
-          description: "ok"
+          description: "success"
         "404":
           description: "offert not found"
         "405":
@@ -162,7 +88,9 @@ paths:
         description: Numeric ID of the offert to get
       responses:
         "200":
-          description: ok
+          description: "success"
+          schema:
+            $ref: "#/definitions/Offert_info_out"
         "405":
           description: "Invalid input"
   
@@ -175,7 +103,11 @@ paths:
       - "application/json"
       responses:
         "200":
-          description: "ok"
+          description: "All organizations"
+          schema:  
+            type: "array"
+            items:
+              $ref: '#/definitions/Organization'
 
   /volunteers/add:
     post:
@@ -191,16 +123,19 @@ paths:
         name: "body"
         description: "volunteer object to add"
         required: true
-        schema: {}
+        schema: 
+          $ref: "#/definitions/Volunteer_info_in"
       responses:
         "200":
-          description: "ok"
+          description: "Created Volunteer"
+          schema:
+            $ref: "#/definitions/Volunteer_info_out"
         "405":
           description: "Invalid input"
           
   /volunteers/delete/{id}:
     delete:
-      summary: "Delete offer"
+      summary: "Delete volunteer"
       description: ""
       operationId: "deleteVolunteers"
       produces:
@@ -213,7 +148,9 @@ paths:
         description: Numeric ID of the volunteer to delete
       responses:
         "200":
-          description: "ok"
+          description: "Deleted volunteer"
+          schema:
+            $ref: '#/definitions/Volunteer_info_out'
         "404":
           description: "volunteer not found"
         "405":
@@ -224,6 +161,27 @@ paths:
       summary: "Get the volunteer details"
       description: ""
       operationId: "getVolunteer"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the volunteer to get
+      responses:
+        "200":
+          description: Volunteer infromations
+          schema:
+            $ref: '#/definitions/Volunteer_info_out'
+        "405":
+          description: "Invalid input"
+  
+  /volunteers/skills/{id}:
+    get:
+      summary: "Get the skills of a volunteer"
+      description: ""
+      operationId: "getVolunteerSkills"
       produces:
       - "application/json"
       parameters:
@@ -247,11 +205,15 @@ paths:
       - "application/json"
       responses:
         "200":
-          description: "ok"
+          description: "All organizations"
+          schema:  
+            type: "array"
+            items:
+              $ref: '#/definitions/Organization'
 
   /organizations/add:
     post:
-      summary: "Add a new offer"
+      summary: "Add a new organization"
       description: ""
       operationId: "addOrganization"
       consumes:
@@ -259,20 +221,24 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "Organization object to add"
-        required: true
-        schema: {}
+        - in: "body"
+          name: "body"
+          description: "Organizatio to add"
+          required: true
+          schema: 
+            $ref: "#/definitions/Organization"
       responses:
         "200":
-          description: "ok"
+          description: Created organization
+          schema:
+            $ref: '#/definitions/Organization'
+      
         "405":
           description: "Invalid input"
           
   /organizations/delete/{id}:
     delete:
-      summary: "Delete offer"
+      summary: "Delete organization"
       description: ""
       operationId: "deleteOrganization"
       produces:
@@ -285,7 +251,9 @@ paths:
         description: Numeric ID of the organization to delete
       responses:
         "200":
-          description: "ok"
+          description: Removed organization
+          schema:
+            $ref: '#/definitions/Organization'
         "404":
           description: "organization not found"
         "405":
@@ -306,6 +274,146 @@ paths:
         description: Numeric ID of the organization to get
       responses:
         "200":
-          description: ok
+          description: Organization infromations
+          schema:
+            $ref: '#/definitions/Organization'
         "405":
           description: "Invalid input"
+          
+          
+definitions:
+  Volunteer_info_in:
+    type: "object"
+    properties:
+      name: 
+        type: "string"
+      surname:
+        type: "string"
+      email:
+        type: "string"
+        format: "email_format"
+      phone_number: 
+        type: "string"
+        format: "numbers_only"
+      photo_url:
+        type: "string"
+        format: "url"
+      registrationDate:
+        type: "string"
+        format: "timestamp"
+      volunteeringType:
+        type: "string"
+        enum:
+        - "AKCYJNY"
+        
+  Volunteer_info_out:
+    type: "object"
+    properties:
+      id: 
+        type: "integer"
+        format: "int64"
+      name: 
+        type: "string"
+      surname:
+        type: "string"
+      email:
+        type: "string"
+        format: "email_format"
+      phone_number: 
+        type: "string"
+        format: "numbers_only"
+      photo_url:
+        type: "string"
+        format: "url"
+      status:
+        type: "string"
+        enum:
+        - "AKTYWNY"
+      experienceLevel:
+        type: "integer"
+        enum:
+        - 1,2,3,4,5
+      registrationDate:
+        type: "string"
+        format: "year/month/day"
+        
+      volunteeringType:
+        type: "string"
+        enum:
+        - "AKCYJNY"
+        
+  Offert_info_out:
+    type: "object"
+    properties:
+      offert_id: 
+        type: "integer"
+        format: "int64"
+      organisation_id: 
+        type: "integer"
+        format: "int64"
+      avaliable_positions:
+        type: "integer"
+        format: "int64"
+      taken_positions:
+        type: "integer"
+        format: "int64"
+      start_date:
+        type: "string"
+        format: "year/month/day"
+      end_date:
+        type: "string"
+        format: "year/month/day"
+      description:
+        type: "string"
+      visibility:
+        type: "integer"
+        enum:
+        - "EVERYONE"
+      offert_status:
+        type: "integer"
+        enum:
+        - "ACTIVE"
+        
+  Offert_info_in:
+    type: "object"
+    properties:
+      organisation_id: 
+        type: "integer"
+        format: "int64"
+      avaliable_positions:
+        type: "integer"
+        format: "int64"
+      start_date:
+        type: "string"
+        format: "year/month/day"
+      end_date:
+        type: "string"
+        format: "year/month/day"
+      description:
+        type: "string"
+      visibility:
+        type: "integer"
+        enum:
+        - "EVERYONE"
+        
+  Organization:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      organizationName:
+        type: "string"
+      address:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "FUNDACJA"
+      status:
+        type: "string"
+        enum:
+        - "AKTYWNA"
+      remarks:
+        type: "string"
+        
