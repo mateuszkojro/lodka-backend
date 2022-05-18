@@ -28,5 +28,5 @@ public class VolunteerInfo {
     private String user_evaluation;
     private Boolean account_verified;
     private Boolean paren_approved;
-
 }
+
