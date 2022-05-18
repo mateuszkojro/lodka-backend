@@ -24,4 +24,8 @@ public class OrganisationService {
         return maybeOrganisation;
     }
 
+    public final Organisation getById(Long id){
+        return organisationRepository.findById(id).orElseThrow();
+    }
+
 }

@@ -24,4 +24,9 @@ public class OrganisationController {
     public Optional<Organisation> addOrganisation(@PathVariable long id) {
         return organisationService.delete(id);
     }
+
+    @GetMapping(path = "/organization/{id}")
+    public Organisation getById(@PathVariable long id){
+        return organisationService.getById(id);
+    }
 }
