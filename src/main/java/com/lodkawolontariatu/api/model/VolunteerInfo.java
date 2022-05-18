@@ -18,9 +18,9 @@ import java.util.Date;
 public class VolunteerInfo {
     // TODO: This is a foregin?
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     @Id
-    Long volunteerId;
+    UserInfo volunteerId;
     private String name;
     Date birthdate;
     private String email;
@@ -28,5 +28,5 @@ public class VolunteerInfo {
     private String user_evaluation;
     private Boolean account_verified;
     private Boolean paren_approved;
-
 }
+
