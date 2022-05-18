@@ -5,10 +5,9 @@ import com.lodkawolontariatu.api.service.OrganisationService;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 @ResponseBody
@@ -19,5 +18,10 @@ public class OrganisationController {
     @PostMapping(path = "/organizations/add")
     public Organisation addOrganisation(@RequestBody Organisation organisation) {
         return organisationService.add(organisation);
+    }
+
+    @DeleteMapping(path = "/organizations/delete/{id}")
+    public Optional<Organisation> addOrganisation(@PathVariable long id) {
+        return organisationService.delete(id);
     }
 }

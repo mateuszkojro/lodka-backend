@@ -5,6 +5,8 @@ import com.lodkawolontariatu.api.repository.OrganisationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class OrganisationService {
@@ -13,6 +15,13 @@ public class OrganisationService {
 
     public Organisation add(Organisation organisation) {
         return organisationRepository.save(organisation);
+    }
+    public Optional<Organisation> delete(Long id) {
+        var maybeOrganisation = organisationRepository.findById(id);
+        if (maybeOrganisation.isPresent()) {
+            organisationRepository.deleteById(id);
+        }
+        return maybeOrganisation;
     }
 
 }
