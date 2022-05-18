@@ -1,0 +1,311 @@
+swagger: "2.0"
+info:
+  description: "Definicja API dla lodki wolontariatu"
+  version: "1.0.0"
+  title: "API lodka wolontariatu"
+  contact:
+    email: "mateusz.maciej.kojro@cern.ch"
+host: "none"
+basePath: "/v1"
+schemes:
+- "https"
+paths:
+  /offers:
+    get:
+      summary: "List all offers"
+      description: ""
+      operationId: "listOffers"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "ok"
+
+  /offers/add:
+    post:
+      summary: "Add a new offer"
+      description: ""
+      operationId: "addOffer"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Offer object to add"
+        required: true
+        schema: {}
+      responses:
+        "200":
+          description: "ok"
+        "405":
+          description: "Invalid input"
+          
+  /offers/delete/{id}:
+    delete:
+      summary: "Delete offer"
+      description: ""
+      operationId: "deleteOffer"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the offer to delete
+      responses:
+        "200":
+          description: "ok"
+        "404":
+          description: "offert not found"
+        "405":
+          description: "Invalid input"
+  
+  /offers/{id}:
+    get:
+      summary: "Get the offert details"
+      description: ""
+      operationId: "getOffer"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the offert to get
+      responses:
+        "200":
+          description: ok
+        "405":
+          description: "Invalid input"
+
+swagger: "2.0"
+info:
+  description: "Definicja API dla lodki wolontariatu"
+  version: "1.0.0"
+  title: "API lodka wolontariatu"
+  contact:
+    email: "mateusz.maciej.kojro@cern.ch"
+host: "none"
+basePath: "/v1"
+schemes:
+- "https"
+paths:
+  /offers:
+    get:
+      summary: "List all offers"
+      description: ""
+      operationId: "listOffers"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "ok"
+
+  /offers/add:
+    post:
+      summary: "Add a new offer"
+      description: ""
+      operationId: "addOffer"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Offer object to add"
+        required: true
+        schema: {}
+      responses:
+        "200":
+          description: "ok"
+        "405":
+          description: "Invalid input"
+          
+  /offers/delete/{id}:
+    delete:
+      summary: "Delete offer"
+      description: ""
+      operationId: "deleteOffer"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the offer to delete
+      responses:
+        "200":
+          description: "ok"
+        "404":
+          description: "offert not found"
+        "405":
+          description: "Invalid input"
+
+  /offers/{id}:
+    get:
+      summary: "Get the offert details"
+      description: ""
+      operationId: "getOffer"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the offert to get
+      responses:
+        "200":
+          description: ok
+        "405":
+          description: "Invalid input"
+  
+  /volunteers:
+    get:
+      summary: "List all volunteers"
+      description: ""
+      operationId: "listVolunteers"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "ok"
+
+  /volunteers/add:
+    post:
+      summary: "Add a new offer"
+      description: ""
+      operationId: "addVolunteer"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "volunteer object to add"
+        required: true
+        schema: {}
+      responses:
+        "200":
+          description: "ok"
+        "405":
+          description: "Invalid input"
+          
+  /volunteers/delete/{id}:
+    delete:
+      summary: "Delete offer"
+      description: ""
+      operationId: "deleteVolunteers"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the volunteer to delete
+      responses:
+        "200":
+          description: "ok"
+        "404":
+          description: "volunteer not found"
+        "405":
+          description: "Invalid input"
+
+  /volunteers/{id}:
+    get:
+      summary: "Get the volunteer details"
+      description: ""
+      operationId: "getVolunteer"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the volunteer to get
+      responses:
+        "200":
+          description: ok
+        "405":
+          description: "Invalid input"
+
+  /organizations:
+    get:
+      summary: "List all organizations"
+      description: ""
+      operationId: "listOrganizations"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "ok"
+
+  /organizations/add:
+    post:
+      summary: "Add a new offer"
+      description: ""
+      operationId: "addOrganization"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Organization object to add"
+        required: true
+        schema: {}
+      responses:
+        "200":
+          description: "ok"
+        "405":
+          description: "Invalid input"
+          
+  /organizations/delete/{id}:
+    delete:
+      summary: "Delete offer"
+      description: ""
+      operationId: "deleteOrganization"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the organization to delete
+      responses:
+        "200":
+          description: "ok"
+        "404":
+          description: "organization not found"
+        "405":
+          description: "Invalid input"
+
+  /organization/{id}:
+    get:
+      summary: "Get the organization details"
+      description: ""
+      operationId: "getOrganization"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        type: integer
+        required: true
+        description: Numeric ID of the organization to get
+      responses:
+        "200":
+          description: ok
+        "405":
+          description: "Invalid input"
