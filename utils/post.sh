@@ -22,3 +22,33 @@ curl -X POST http://localhost:8080/organizations/add -H 'Content-Type: applicati
 
 echo "-- Remove organization"
 curl -X DELETE localhost:8080/organizations/delete/1
+
+echo "-- Creating user id 0:"
+curl -X POST http://localhost:8080/user-info/post \
+     -H 'Content-Type: application/json' \
+     -d '{"name":"Mateusz","surname":"Kojro","user_status": "active","email":"mateusz.maciej.kojro@cern.ch","phone_number":"2123"}'
+     
+echo "-- VOLUNTEERS TEST (user id 0 needed):"
+echo "-- Geting all volunteers"
+curl -X GET http://localhost:8080/volunteer/get
+
+echo "-- Add Volunteer from user id 0:"
+curl -X POST http://localhost:8080/volunteer/add -H 'Content-Type: application/json' -d '
+{
+"volunteerId": 0,
+"organizationName": "org_name",
+"birthday":"1998-05-19", 
+"email": "email", 
+"address": "adres",
+"user_evaluation": "user_eval",
+"account_verified": "True",
+"paren_approved": "True"
+}'
+
+echo "-- Geting id 0 volunteer"
+curl -X GET http://localhost:8080/volunteer/get/0
+
+echo "-- Deleting id 0 volunteer"
+curl -X GET http://localhost:8080/volunteer/delete/0
+
+
