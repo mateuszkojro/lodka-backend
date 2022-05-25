@@ -11,7 +11,7 @@ info:
 host: "none"
 basePath: "/v1"
 schemes:
-- "https"
+  - "https"
 paths:
   /offers:
     get:
@@ -19,7 +19,7 @@ paths:
       description: ""
       operationId: "listOffers"
       produces:
-      - "application/json"
+        - "application/json"
       responses:
         "200":
           description: "success"
@@ -38,16 +38,16 @@ paths:
       description: ""
       operationId: "addOffer"
       consumes:
-      - "application/json"
+        - "application/json"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "Offer object to add"
-        required: true
-        schema:
-          $ref: "#/definitions/OfferInfoIn"
+        - in: "body"
+          name: "body"
+          description: "Offer object to add"
+          required: true
+          schema:
+            $ref: "#/definitions/OfferInfoIn"
       responses:
         "200":
           description: "success"
@@ -59,20 +59,20 @@ paths:
           description: "Invalid input"
         "500":
           description: "internal server error"
-          
+
   /offers/delete/{id}:
     delete:
       summary: "Delete offer"
       description: ""
       operationId: "deleteOffer"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the offer to delete
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the offer to delete
       responses:
         "200":
           description: "success"
@@ -91,13 +91,13 @@ paths:
       description: ""
       operationId: "getOffer"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the offer to get
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the offer to get
       responses:
         "200":
           description: "success"
@@ -109,21 +109,21 @@ paths:
           description: "Invalid input"
         "500":
           description: "internal server error"
-  
+
   /volunteers:
     get:
       summary: "List all volunteers"
       description: ""
       operationId: "listVolunteers"
       produces:
-      - "application/json"
+        - "application/json"
       responses:
         "200":
           description: "All volunteers"
-          schema:  
+          schema:
             type: "array"
             items:
-              $ref: '#/definitions/VolunteerInfoOut'
+              $ref: "#/definitions/VolunteerInfoOut"
         "405":
           description: "Invalid input"
         "500":
@@ -135,16 +135,16 @@ paths:
       description: ""
       operationId: "addVolunteer"
       consumes:
-      - "application/json"
+        - "application/json"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "volunteer object to add"
-        required: true
-        schema: 
-          $ref: "#/definitions/VolunteerInfoIn"
+        - in: "body"
+          name: "body"
+          description: "volunteer object to add"
+          required: true
+          schema:
+            $ref: "#/definitions/VolunteerInfoIn"
       responses:
         "200":
           description: "Created Volunteer"
@@ -154,25 +154,25 @@ paths:
           description: "Invalid input"
         "500":
           description: "internal server error"
-          
+
   /volunteers/delete/{id}:
     delete:
       summary: "Delete volunteer"
       description: ""
       operationId: "deleteVolunteers"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the volunteer to delete
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the volunteer to delete
       responses:
         "200":
           description: "Deleted volunteer"
           schema:
-            $ref: '#/definitions/VolunteerInfoOut'
+            $ref: "#/definitions/VolunteerInfoOut"
         "404":
           description: "volunteer not found"
         "405":
@@ -186,38 +186,38 @@ paths:
       description: ""
       operationId: "getVolunteer"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the volunteer to get
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the volunteer to get
       responses:
         "200":
           description: Volunteer information
           schema:
-            $ref: '#/definitions/VolunteerInfoOut'
+            $ref: "#/definitions/VolunteerInfoOut"
         "404":
           description: "volunteer not found"
         "405":
           description: "Invalid input"
         "500":
           description: "internal server error"
-  
+
   /volunteers/{id}/skills:
     get:
       summary: "Get the skills of a volunteer"
       description: ""
       operationId: "getVolunteerSkills"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the volunteer to get
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the volunteer to get
       responses:
         "200":
           description: ok
@@ -236,14 +236,14 @@ paths:
       description: ""
       operationId: "listOrganizations"
       produces:
-      - "application/json"
+        - "application/json"
       responses:
         "200":
           description: "All organizations"
-          schema:  
+          schema:
             type: "array"
             items:
-              $ref: '#/definitions/Organization'
+              $ref: "#/definitions/Organization"
         "500":
           description: "internal server error"
 
@@ -253,44 +253,44 @@ paths:
       description: ""
       operationId: "addOrganization"
       consumes:
-      - "application/json"
+        - "application/json"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
         - in: "body"
           name: "body"
           description: "Organization to add"
           required: true
-          schema: 
+          schema:
             $ref: "#/definitions/Organization"
       responses:
         "200":
           description: Created organization
           schema:
-            $ref: '#/definitions/Organization'
+            $ref: "#/definitions/Organization"
         "405":
           description: "Invalid input"
         "500":
           description: "internal server error"
-          
+
   /organizations/delete/{id}:
     delete:
       summary: "Delete organization"
       description: ""
       operationId: "deleteOrganization"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the organization to delete
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the organization to delete
       responses:
         "200":
           description: Removed organization
           schema:
-            $ref: '#/definitions/Organization'
+            $ref: "#/definitions/Organization"
         "404":
           description: "organization not found"
         "405":
@@ -304,59 +304,57 @@ paths:
       description: ""
       operationId: "getOrganization"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the organization to get
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the organization to get
       responses:
         "200":
           description: Organization information
           schema:
-            $ref: '#/definitions/Organization'
+            $ref: "#/definitions/Organization"
         "404":
           description: "organization not found"
         "405":
           description: "Invalid input"
         "500":
           description: "internal server error"
-      
+
   /organization/{id}/admins:
     get:
       summary: "Get the organization admins"
       description: ""
       operationId: "getOrganizationAdmins"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - in: path
-        name: id
-        type: integer
-        required: true
-        description: Numeric ID of the organization
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: Numeric ID of the organization
       responses:
         "200":
           description: "All organization admins"
-          schema:  
+          schema:
             type: "array"
             items:
-              $ref: '#/definitions/OrganizationAdminsOut'
+              $ref: "#/definitions/OrganizationAdminsOut"
         "404":
           description: "No organization admins (?)"
         "405":
           description: "Invalid input"
         "500":
           description: "internal server error"
-        
-          
-          
+
 definitions:
   VolunteerInfoIn:
     type: "object"
     properties:
-      id: 
+      id:
         type: "integer"
         format: "int64"
       birth_date:
@@ -369,24 +367,24 @@ definitions:
         type: "boolean"
       parent_approved:
         type: "boolean"
-        
+
   VolunteerInfoOut:
     type: "object"
     properties:
-      id: 
+      id:
         type: "integer"
         format: "int64"
-      name: 
+      name:
         type: "string"
       surname:
         type: "string"
       email:
         type: "string"
         format: "email_format"
-      registrationDate: 
+      registrationDate:
         type: "string"
         format: "data_format"
-      phone_number: 
+      phone_number:
         type: "string"
         format: "numbers_only"
       photo_url:
@@ -394,7 +392,7 @@ definitions:
         format: "url"
       status:
         type: "string"
-        enum: [ "ACTIVE","BLOCKED","DELETED","DECEASED","DEPRESSED"] 
+        enum: ["ACTIVE", "BLOCKED", "DELETED", "DECEASED", "DEPRESSED"]
       birth_date:
         type: "string"
         format: "date"
@@ -405,18 +403,17 @@ definitions:
         type: "boolean"
       parent_approved:
         type: "boolean"
-        
 
   OfferInfoOut:
     type: "object"
     properties:
-      offer_id: 
+      offer_id:
         type: "integer"
         format: "int64"
-      organization_id: 
+      organization_id:
         type: "integer"
         format: "int64"
-      organization_name: 
+      organization_name:
         type: "string"
       region:
         type: "string"
@@ -458,21 +455,20 @@ definitions:
         type: "string"
       coordinator_surname:
         type: "string"
-
       coordinator_phone:
         type: "string"
         format: "number only phone number"
-        
+
   OfferInfoIn:
     type: "object"
     properties:
-      offer_id: 
+      offer_id:
         type: "integer"
         format: "int64"
-      organization_id: 
+      organization_id:
         type: "integer"
         format: "int64"
-      organization_name: 
+      organization_name:
         type: "string"
       region:
         type: "string"
@@ -480,7 +476,7 @@ definitions:
         type: "string"
       volunteeringType:
         type: "string"
-        enum: ["DŁUGOTERMINOWY","AKCYJNY"]
+        enum: ["DŁUGOTERMINOWY", "AKCYJNY"]
       available_positions:
         type: "integer"
         format: "int64"
@@ -497,7 +493,7 @@ definitions:
         type: "string"
       needed_skills:
         type: "string"
-        format: "comma separated skills" 
+        format: "comma separated skills"
       visibility:
         type: "string"
         enum: ["EVERYONE"]
@@ -508,7 +504,6 @@ definitions:
         type: "integer"
         format: "int64"
 
-        
   Organization:
     type: "object"
     properties:
@@ -521,33 +516,26 @@ definitions:
         type: "string"
       type:
         type: "string"
-        enum:
-        - "FUNDACJA"
+        enum: ["FUNDACJA"]
       status:
         type: "string"
-        enum:
-        - "AKTYWNA"
+        enum: ["AKTYWNA"]
       description:
         type: "string"
-        enum:
-        - "some description"
-      workArea: 
+      workArea:
         type: "string"
-        enum:
-        - "psy,niewidomi"
       volunteeringType:
         type: "string"
-        enum: ["DŁUGOTERMINOWY","AKCYJNY"]
-      registrationDate: 
+        enum: ["DŁUGOTERMINOWY", "AKCYJNY"]
+      registrationDate:
         type: "string"
         format: "date"
       region:
         type: "string"
-
       logoUrl:
         type: "string"
         format: "http url"
-        
+
   OrganizationAdminsOut:
     type: "object"
     properties:
@@ -557,14 +545,13 @@ definitions:
       user_id:
         type: "integer"
         format: "int64"
-      
+
   volunteerSkillsOut:
     type: "object"
     properties:
-      id: 
+      id:
         type: "integer"
         format: "int64"
       skill:
         type: "string"
         format: "comma separated skills"
-        
