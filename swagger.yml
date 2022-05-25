@@ -323,33 +323,6 @@ paths:
         "500":
           description: "internal server error"
 
-  /organization/{id}/admins:
-    get:
-      summary: "Get the organization admins"
-      description: ""
-      operationId: "getOrganizationAdmins"
-      produces:
-        - "application/json"
-      parameters:
-        - in: path
-          name: id
-          type: integer
-          required: true
-          description: Numeric ID of the organization
-      responses:
-        "200":
-          description: "All organization admins"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/OrganizationAdminsOut"
-        "404":
-          description: "No organization admins (?)"
-        "405":
-          description: "Invalid input"
-        "500":
-          description: "internal server error"
-
 definitions:
   VolunteerInfoIn:
     type: "object"
