@@ -330,15 +330,15 @@ definitions:
       id:
         type: "integer"
         format: "int64"
-      birth_date:
+      birthDate:
         type: "string"
         format: "date"
       adres:
         type: "string"
         format: "adres"
-      account_verified:
+      accountVerified:
         type: "boolean"
-      parent_approved:
+      parentApproved:
         type: "boolean"
 
   VolunteerInfoOut:
@@ -357,36 +357,36 @@ definitions:
       registrationDate:
         type: "string"
         format: "data_format"
-      phone_number:
+      phoneNumber:
         type: "string"
         format: "numbers_only"
-      photo_url:
+      photoUrl:
         type: "string"
         format: "url"
       status:
         type: "string"
         enum: ["ACTIVE", "BLOCKED", "DELETED", "DECEASED", "DEPRESSED"]
-      birth_date:
+      birthDate:
         type: "string"
         format: "date"
       adres:
         type: "string"
         format: "adresu"
-      account_verified:
+      accountVerified:
         type: "boolean"
-      parent_approved:
+      parentApproved:
         type: "boolean"
 
   OfferInfoOut:
     type: "object"
     properties:
-      offer_id:
+      offerId:
         type: "integer"
         format: "int64"
-      organization_id:
+      organizationId:
         type: "integer"
         format: "int64"
-      organization_name:
+      organizationName:
         type: "string"
       region:
         type: "string"
@@ -395,16 +395,16 @@ definitions:
       volunteeringType:
         type: "string"
         enum: ["akcyjny"]
-      available_positions:
+      availablePositions:
         type: "integer"
         format: "int64"
-      taken_positions:
+      takenPositions:
         type: "integer"
         format: "int64"
-      start_date:
+      startDate:
         type: "string"
         format: "date"
-      end_date:
+      endDate:
         type: "string"
         format: "date"
       description:
@@ -412,33 +412,33 @@ definitions:
       visibility:
         type: "string"
         enum: ["EVERYONE"]
-      offer_status:
+      offerStatus:
         type: "string"
         enum: ["ACTIVE"]
-      coordinator_id:
+      coordinatorId:
         type: "integer"
         format: "int64"
       minAge:
         type: "integer"
         format: "int64"
-      needed_skills:
+      neededSkills:
         type: "string"
         format: "comma separated skills"
       coordinator_name:
         type: "string"
-      coordinator_surname:
+      coordinatorSurname:
         type: "string"
-      coordinator_phone:
+      coordinatorPhone:
         type: "string"
         format: "number only phone number"
 
   OfferInfoIn:
     type: "object"
     properties:
-      offer_id:
+      offerId:
         type: "integer"
         format: "int64"
-      organization_id:
+      organizationId:
         type: "integer"
         format: "int64"
       organization_name:
@@ -450,30 +450,30 @@ definitions:
       volunteeringType:
         type: "string"
         enum: ["DŁUGOTERMINOWY", "AKCYJNY"]
-      available_positions:
+      availablePositions:
         type: "integer"
         format: "int64"
-      taken_positions:
+      takenPositions:
         type: "integer"
         format: "int64"
-      start_date:
+      startDate:
         type: "string"
         format: "date"
-      end_date:
+      endDate:
         type: "string"
         format: "date"
       description:
         type: "string"
-      needed_skills:
+      neededSkills:
         type: "string"
         format: "comma separated skills"
       visibility:
         type: "string"
         enum: ["EVERYONE"]
-      offer_status:
+      offerStatus:
         type: "string"
         enum: ["ACTIVE"]
-      coordinator_id:
+      coordinatorId:
         type: "integer"
         format: "int64"
 
@@ -512,10 +512,10 @@ definitions:
   OrganizationAdminsOut:
     type: "object"
     properties:
-      organization_id:
+      organizationId:
         type: "integer"
         format: "int64"
-      user_id:
+      userId:
         type: "integer"
         format: "int64"
 
