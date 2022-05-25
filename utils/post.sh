@@ -51,4 +51,5 @@ curl -X GET http://localhost:8080/volunteer/get/0
 echo "-- Deleting id 0 volunteer"
 curl -X GET http://localhost:8080/volunteer/delete/0
 
-
+echo "-- Get the skills of a volunteer 0"
+curl -X GET localhost:8080/volunteers/skills/0 -H accept: application/json
