@@ -20,13 +20,13 @@ import javax.persistence.Table;
 public class OfferInfo {
     @Id
     @Column(name = "id", nullable = false)
-    private Long organization_id;
-    private Long avaiable_positions;
-    private Long taken_positions;
-    private String start_date;
-    private String end_date;
+    private Long organizationId;
+    private Long avaiablePositions;
+    private Long takenPositions;
+    private String startDate;
+    private String endDate;
     private String description;
     private String visibility;
-    private String offer_status;
+    private String offerStatus;
 
 }
