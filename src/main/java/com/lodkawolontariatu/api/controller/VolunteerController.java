@@ -1,6 +1,8 @@
 package com.lodkawolontariatu.api.controller;
 
+import com.lodkawolontariatu.api.model.UserSkill;
 import com.lodkawolontariatu.api.model.VolunteerInfo;
+import com.lodkawolontariatu.api.service.UserSkillService;
 import com.lodkawolontariatu.api.service.VolunteerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import java.util.Optional;
 public class VolunteerController {
 
     private final VolunteerService volunteerService;
+
+    private final UserSkillService userSkillService;
 
     @PostMapping(path = "/volunteer/add")
     public VolunteerInfo addVolunteer(@RequestBody VolunteerInfo volunteer) {
@@ -37,4 +41,8 @@ public class VolunteerController {
         return volunteerService.delete(id);
     }
 
+    @GetMapping(path = "/volunteer/skills/{id}")
+    public List<UserSkill> getSkillsById(@PathVariable Long id) {
+        return userSkillService.getById(id);
+    }
 }
