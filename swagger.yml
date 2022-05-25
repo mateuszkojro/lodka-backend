@@ -205,7 +205,7 @@ paths:
         "500":
           description: "internal server error"
 
-  /volunteers/{id}/skills:
+  /volunteers/skills/{id}:
     get:
       summary: "Get the skills of a volunteer"
       description: ""
