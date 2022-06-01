@@ -11,7 +11,6 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class VolunteerService {
-
     private final VolunteerRepository volunteerRepository;
 
     public VolunteerInfo add(VolunteerInfo volunteer) {
