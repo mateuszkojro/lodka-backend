@@ -16,7 +16,7 @@ import java.util.Date;
 @Entity
 @Table(name = "VOLUNTEER_INFO")
 public class VolunteerInfo {
-    // TODO: This is a foregin?
+
     @OneToOne
     @JoinColumn(name = "userId")
     @Id
