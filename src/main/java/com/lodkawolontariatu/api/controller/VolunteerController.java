@@ -16,23 +16,23 @@ public class VolunteerController {
 
     private final VolunteerService volunteerService;
 
-    @PostMapping(path = "/volunteer/add")
+    @PostMapping(path = "/volunteer/")
     public VolunteerInfo addVolunteer(@RequestBody VolunteerInfo volunteer) {
         return volunteerService.add(volunteer);
     }
 
-    @GetMapping(path = "/volunteer/get")
+    @GetMapping(path = "/volunteer/")
     public List<VolunteerInfo> getAll() {
         return volunteerService.findAll();
     }
 
 
-    @GetMapping(path = "/volunteer/get/{id}")
+    @GetMapping(path = "/volunteer/{id}")
     public VolunteerInfo getById(@RequestBody Long id) {
         return volunteerService.get(id);
     }
 
-    @DeleteMapping(path = "/volunteer/delete/{id}")
+    @DeleteMapping(path = "/volunteer/{id}")
     public Optional<VolunteerInfo> deleteVolunteer(@PathVariable Long id) {
         return volunteerService.delete(id);
     }

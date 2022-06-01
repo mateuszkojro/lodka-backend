@@ -22,11 +22,15 @@ public class VolunteerInfo {
     @Id
     UserInfo volunteerId;
     private String name;
+    private String surname;
     Date birthdate;
+    Date registrationDate;
+    String phoneNumber;
     private String email;
-    private String adress;
-    private String user_evaluation;
+    private String address;
     private Boolean account_verified;
     private Boolean paren_approved;
+    String photoUrl;
+    String status;
 }
 
