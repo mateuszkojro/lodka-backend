@@ -14,12 +14,12 @@ import java.util.List;
 public class UserInfoController {
     private final UserInfoService userInfoService;
 
-    @GetMapping(path = "/user-info/get/{id}")
+    @GetMapping(path = "/user-info/{id}")
     public UserInfo getById(@PathVariable Long id) {
         return userInfoService.getById(id);
     }
 
-    @PostMapping(path = "/user-info/post")
+    @PostMapping(path = "/user-info/")
     public UserInfo addUser(@RequestBody UserInfo userInfo) {
         return userInfoService.add(userInfo);
     }

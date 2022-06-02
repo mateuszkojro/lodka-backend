@@ -18,10 +18,10 @@ public class OfferInfoController {
     @GetMapping(path = "/offers")
     public List<OfferInfo> getOffers() { return offerInfoService.getAllOffers();}
 
-    @PostMapping(path = "/offers/add")
+    @PostMapping(path = "/offers/")
     public ResponseEntity addOffer(@RequestBody OfferInfo offerInfo) {return offerInfoService.addOffer(offerInfo);}
 
-    @DeleteMapping(path = "offers/delete/{id}")
+    @DeleteMapping(path = "offers/{id}")
     public ResponseEntity deleteById(@PathVariable Long id) {return offerInfoService.deleteOffer(id);}
 
     @GetMapping(path = "offers/{id}")
