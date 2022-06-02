@@ -16,12 +16,12 @@ import java.util.Optional;
 public class OrganisationController {
     private final OrganisationService organisationService;
 
-    @PostMapping(path = "/organizations/add")
+    @PostMapping(path = "/organizations/")
     public Organisation addOrganisation(@RequestBody Organisation organisation) {
         return organisationService.add(organisation);
     }
 
-    @DeleteMapping(path = "/organizations/delete/{id}")
+    @DeleteMapping(path = "/organizations/{id}")
     public Optional<Organisation> addOrganisation(@PathVariable long id) {
         return organisationService.delete(id);
     }

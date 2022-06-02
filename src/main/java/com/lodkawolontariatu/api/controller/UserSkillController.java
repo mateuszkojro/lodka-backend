@@ -16,12 +16,12 @@ public class UserSkillController {
     private final UserSkillService userSkillService;
     private final UserInfoService userInfoService;
 
-    @GetMapping(path = "/user-skills/get/{id}")
+    @GetMapping(path = "/user-skills/{id}")
     public List<UserSkill> getById(@PathVariable long id) {
         return userSkillService.getById(id);
     }
 
-    @PostMapping(path = "/user-skills/post/{id}")
+    @PostMapping(path = "/user-skills/{id}")
     public UserSkill addUserSkill(@RequestBody UserSkill userSkill, @PathVariable long id) {
         var userInfo = userInfoService.getById(id);
         userSkill.setUserId(userInfo);
